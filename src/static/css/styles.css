@@ -1,0 +1,240 @@
+/* Estilos generales */
+body {
+    background: linear-gradient(135deg, #0f30c2, #ffffff);
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.page {
+    width: 90%;
+    max-width: 900px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    animation: fadeIn 1s ease-in-out;
+    flex-direction: row; /* Flex por defecto */
+}
+
+/* Contenedor */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.left {
+    background: linear-gradient(135deg, #0f30c2, #4b6fe2);
+    color: white;
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: slideInLeft 1s ease-out;
+}
+
+.left .login {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.left .volver {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.left .volver:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.right {
+    flex: 1;
+    padding: 40px;
+    position: relative;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: slideInRight 1s ease-out;
+}
+
+svg {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    opacity: 0.2;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #0f30c2;
+    box-shadow: 0 0 5px rgba(15, 48, 194, 0.5);
+}
+
+input[type="submit"] {
+    padding: 10px;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #0f30c2, #4b6fe2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(135deg, #4b6fe2, #0f30c2);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(15, 48, 194, 0.3);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* --- Estilos responsivos --- */
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    .page {
+        flex-direction: column; /* Cambia la orientación a vertical */
+        height: auto;
+    }
+
+    .left, 
+    .right {
+        padding: 30px;
+    }
+
+    .left .login {
+        font-size: 1.5rem;
+    }
+
+    .left .volver {
+        font-size: 0.9rem;
+    }
+
+    svg {
+        width: 100px;
+        height: 100px;
+        top: -30px;
+        right: -30px;
+    }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    body {
+        height: auto; /* Permite scroll en móviles */
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .page {
+        width: 100%;
+        box-shadow: none; /* Elimina la sombra para evitar que se vea extra en pantallas pequeñas */
+    }
+
+    .left, 
+    .right {
+        padding: 20px;
+    }
+
+    .left .login {
+        font-size: 1.2rem;
+    }
+
+    .left .volver {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
+
+    .form {
+        gap: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    input[type="submit"] {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    svg {
+        display: none; /* Oculta el SVG para mayor simplicidad en móviles */
+    }
+}
